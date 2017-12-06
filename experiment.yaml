@@ -2,8 +2,8 @@ description: This is my experiment demo
 tags:
   - demo
 resources:
-  - name: cpu_stressor
-    generator: git:git@gitlab.gwdg.de:scotty/resource/cpu_stressor:master
+  - name: cpu_stressor_resource
+    generator: git:git@gitlab.gwdg.de:scotty/resource/cpu_stressor[master]
     params: 
       threads: 8
 workloads:
