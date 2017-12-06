@@ -8,7 +8,7 @@ resources:
       threads: 8
 workloads:
   - name: cpu_stressor
-    generator: git:git@gitlab.gwdg.de:scotty/workload/demo:master
+    generator: git:git@gitlab.gwdg.de:scotty/workload/demo[master]
     params:
       greeting: "Hallo"
     resources:
