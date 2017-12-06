@@ -2,26 +2,14 @@ description: This is my experiment demo
 tags:
   - demo
 resources:
-  - name: demo_resource
-    generator: git:git@gitlab.gwdg.de:scotty/resource/demo:master
+  - name: cpu_stressor
+    generator: git:git@gitlab.gwdg.de:scotty/resource/cpu_stressor:master
     params: 
-      servers: 2
-  - name: demo_resource_2
-    generator: git:git@gitlab.gwdg.de:scotty/resource/demo:master
-    params: 
-      servers: 2
+      threads: 8
 workloads:
-  - name: demo_workload
+  - name: cpu_stressor
     generator: git:git@gitlab.gwdg.de:scotty/workload/demo:master
     params:
       greeting: "Hallo"
     resources:
-      mongo: demo_resource
-      mongo_static: demo_resource
-  - name: demo_workload_2
-    generator: git:git@gitlab.gwdg.de:scotty/workload/demo:master
-    params:
-      greeting: "Hallo"
-    resources:
-      mongo: demo_resource_2
-      mongo_static: demo_resource_2
+      cpu_stressor: cpu_stressor_resource
