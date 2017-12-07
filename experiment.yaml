@@ -6,10 +6,14 @@ resources:
     generator: git:git@gitlab.gwdg.de:scotty/resource/cpu_stress[master]
     params: 
       threads: 8
+      auth_url: <%= OS_AUTH_URL %>
+      username: <%= OS_USERNAM %>
+      password: <%= OS_PASSWORD %>
+      project_name: <% OS_PROJECT_NAME %>
 workloads:
   - name: cpu_stressor
     generator: git:git@gitlab.gwdg.de:scotty/workload/cpu_stressor[master]
     params:
-      greeting: "Hallo"
+      greeting: "Halo"
     resources:
       cpu_stressor: cpu_stressor_resource
