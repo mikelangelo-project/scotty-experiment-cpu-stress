@@ -16,6 +16,20 @@ resources:
       username: <%= ENV['OS_USERNAME'] %>
       password: <%= ENV['OS_PASSWORD'] %>
       project_name: <%= ENV['OS_PROJECT_NAME'] %>
+  - name: cpu_stressor_resource_3
+    generator: git:git@gitlab.gwdg.de:scotty/resource/cpu_stress[master]
+    params: 
+      auth_url: <%= ENV['OS_AUTH_URL'] %>
+      username: <%= ENV['OS_USERNAME'] %>
+      password: <%= ENV['OS_PASSWORD'] %>
+      project_name: <%= ENV['OS_PROJECT_NAME'] %>
+  - name: cpu_stressor_resource_4
+    generator: git:git@gitlab.gwdg.de:scotty/resource/cpu_stress[master]
+    params: 
+      auth_url: <%= ENV['OS_AUTH_URL'] %>
+      username: <%= ENV['OS_USERNAME'] %>
+      password: <%= ENV['OS_PASSWORD'] %>
+      project_name: <%= ENV['OS_PROJECT_NAME'] %>
 workloads:
   - name: cpu_stressor
     generator: git:git@gitlab.gwdg.de:scotty/workload/cpu_stressor[master]
@@ -25,3 +39,5 @@ workloads:
       cpu_stressor:
         - cpu_stressor_resource_1
         - cpu_stressor_resource_2
+        - cpu_stressor_resource_3
+        - cpu_stressor_resource_4
