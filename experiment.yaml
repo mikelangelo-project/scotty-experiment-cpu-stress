@@ -2,10 +2,16 @@ description: This is my experiment demo
 tags:
   - demo
 resources:
-  - name: cpu_stressor_resource
+  - name: cpu_stressor_resource_1
     generator: git:git@gitlab.gwdg.de:scotty/resource/cpu_stress[master]
     params: 
-      threads: 8
+      auth_url: <%= ENV['OS_AUTH_URL'] %>
+      username: <%= ENV['OS_USERNAME'] %>
+      password: <%= ENV['OS_PASSWORD'] %>
+      project_name: <%= ENV['OS_PROJECT_NAME'] %>
+  - name: cpu_stressor_resource_2
+    generator: git:git@gitlab.gwdg.de:scotty/resource/cpu_stress[master]
+    params: 
       auth_url: <%= ENV['OS_AUTH_URL'] %>
       username: <%= ENV['OS_USERNAME'] %>
       password: <%= ENV['OS_PASSWORD'] %>
@@ -16,4 +22,6 @@ workloads:
     params:
       greeting: "Halo"
     resources:
-      cpu_stressor: cpu_stressor_resource
+      cpu_stressor:
+        - cpu_stressor_resource_1
+        - cpu_stressor_resource_2
